@@ -14,9 +14,6 @@ Route::get('/jobs', function () {
         'Software Engineer',
         'Systems Analyst'
     ];
-    // return view('jobs.index', [
-    //     'title' => 'Available Jobs'
-    // ]);
     return view('jobs.index', compact('title', 'jobs'));
 })->name('jobs');
 
