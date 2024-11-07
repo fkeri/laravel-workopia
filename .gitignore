@@ -20,3 +20,5 @@ yarn-error.log
 /.idea
 /.vscode
 /.zed
+/_theme_files
+.DS_Store
