@@ -4,7 +4,7 @@
         <h2 class="text-4xl text-center font-bold mb-4">
             Create Job Listing
         </h2>
-        <form method="POST" action="/jobs" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('jobs.store') }}" enctype="multipart/form-data">
             @csrf
             <h2 class="text-2xl font-bold mb-6 text-center text-gray-500">
                 Job Info
@@ -88,7 +88,7 @@
             </div>
 
             <x-inputs.text id="company_website" name="company_website" label="Company Website"
-                placeholder="Enter website" />
+                placeholder="Enter website" type="url" />
 
             <x-inputs.text id="contact_phone" name="contact_phone" label="Contact Phone" placeholder="Enter phone" />
 
