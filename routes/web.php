@@ -16,11 +16,14 @@ Route::resource('jobs', JobController::class)->except([
   'create', 'edit', 'update', 'destroy'
 ]);
 
-// Registration routes
-Route::get('/register', [RegisterController::class, 'register'])->name('register');
-Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+Route::middleware('guest')->group(function() {
+  // Registration routes
+  Route::get('/register', [RegisterController::class, 'register'])->name('register');
+  Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
-// Login routes
-Route::get('/login', [LoginController::class, 'login'])->name('login');
-Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
+  // Login routes
+  Route::get('/login', [LoginController::class, 'login'])->name('login');
+  Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
+});
+
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
